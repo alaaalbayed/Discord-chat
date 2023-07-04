@@ -1,0 +1,99 @@
+﻿body {
+    background-image: url('../images/desktop-1920x1080.jpg');
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.LoginBorder {
+    border: 1px solid #302d2d;
+    background: #36393f;
+    border-radius: 10px;
+    width: 470px;
+    height: 600px;
+    margin: 30px 420px;
+}
+
+#Welcome {
+    color: white;
+    text-align: center;
+}
+
+#excited {
+    color: #b9bbbe;
+}
+
+#star {
+    color: red;
+    font-size: 12px;
+}
+
+#input {
+    margin-left: 32px;
+    height: 35px;
+    width: 400px;
+    border: 1px solid black;
+    background-color: #303339;
+    border-radius: 3px;
+    color: white;
+}
+
+    #input:focus {
+        outline: none;
+        border: 1px solid;
+        border-color: #1caff4;
+    }
+
+#inputtext {
+    font-size: 12px;
+    margin-left: 32px;
+    color: #b9bbbe;
+}
+
+#forgot {
+    margin-right: 160px;
+    text-decoration: none;
+    color: #1caff4;
+    font-size: 14px;
+}
+
+#loginbtn {
+    background-color: #5865f2;
+    width: 410px;
+    height: 40px;
+    border: 1px solid #5865f2;
+    border-radius: 3px;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    margin-left: 30px;
+    margin-top: 10px;
+}
+
+#Need {
+    color: #b9bbbe;
+    margin-left: 32px;
+    font-size: 14px;
+}
+
+#term {
+    color: #b9bbbe;
+    margin-left: 32px;
+}
+
+#drop {
+    color: #b9bbbe;
+    border: 1px solid;
+    margin-left: 32px;
+    width: 111px;
+    height: 35px;
+}
+#drop, select {
+    background-color: #303339;
+    border: 1px solid black;
+}
+
+
+    #drop:hover {
+        outline: none;
+        border: 1px solid;
+        border-color: #1caff4;
+    }

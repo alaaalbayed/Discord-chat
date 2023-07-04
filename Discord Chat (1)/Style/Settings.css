@@ -1,0 +1,132 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    font-family: sans-serif;
+    overflow: hidden;
+}
+
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    width: 250px;
+    height: 100vh;
+    background-color: #2f3135;
+    color: gray;
+}
+
+
+.Setting {
+    display: flex;
+    flex-direction: column;
+    background-color: #353a3f;
+    height: 100vh;
+    flex: 1;
+}
+
+
+    .sidebar {
+        width: 400px;
+        align-items: center;
+
+    }
+
+.sidebar__icon {
+    color:white;
+    padding: 10px;
+    margin-left: 28px;
+    width: 150px;
+    border-radius:5px;
+}
+
+    .sidebar__icon:hover {
+        color: #fff;
+        background-color: #40464b;
+        cursor: pointer;
+    }
+
+
+#usersttingstop{
+    color:white;
+    margin-top:60px;
+    margin-left:40px;
+}
+
+#textmyaccount {
+    font-size:20px;
+    color: white;
+    margin-top: 56px;
+    margin-left: 40px;
+}
+.SttingsBorder {
+    border: 1px solid #302d2d;
+    background: #202225;
+    border-radius: 7px;
+    width: 700px;
+    height: 425px;
+    margin: 50px 40px;
+}
+.usersettings{
+    color:white;
+    margin-left:10px;
+    margin-top:30px;
+}
+.usersettings th{
+    padding:20px;
+}
+
+.SttingsBorder2 {
+    border: 1px solid #302d2d;
+    background: #2f3135;
+    border-radius: 10px;
+    width: 650px;
+    height: 255px;
+    margin: 50px 25px;
+}
+
+#allon {
+    color: white;
+    margin: 20px 20px;
+}
+
+#tablesettile img {
+    border-radius:50px;
+    margin-left:20px; 
+    margin-top:20px;
+}
+
+#tablesettile h4 {
+    margin-left: 20px; 
+    margin-top: 20px;
+    color:white;
+}
+
+#tablesettile input {
+    margin-left: 340px;
+    margin-top: 20px;
+    cursor: pointer;
+    background-color: aqua;
+    width: 150px;
+    height: 30px;
+    background-color: #5865f2;
+    border: 1px solid #5865f2;
+    border-radius: 3px;
+    color: white;
+    font-size: 14px;
+}
+#circleEsc{
+    color:white;
+    font-size:35px;
+    margin-left:565px;
+}
+    #circleEsc:hover {
+        color: #2f3135;
+        transition: color 0.1s;
+    }
+
+    

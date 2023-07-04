@@ -1,0 +1,10 @@
+﻿@model Discord_Chat__1_.Models.message
+
+@using (Html.BeginForm("PageUser", "Home", FormMethod.Get))
+{
+    <form>
+        @*<input class="sendMessage" type="text" placeholder="send message">*@
+        @Html.TextBoxFor(x => x.messageBody, null, new { @class = "sendMessage", @type = "text", @placeholder = "send message" })
+        <button class="chat__inputButton" type="submit">Send</button>
+    </form>
+}

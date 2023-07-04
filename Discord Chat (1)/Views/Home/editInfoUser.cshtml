@@ -1,0 +1,65 @@
+﻿@model Discord_Chat__1_.Models.User
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+
+
+
+
+<html>
+<head>
+    <link rel="icon" href="~/Images/847541504914fd33810e70a0ea73177e.ico" />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,400;1,900&family=PT+Sans:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/Style/ForgetPage.css" type="text/css">
+    <meta name="viewport" content="width=device-width" />
+    <title>Forget Password</title>
+</head>
+<body>
+
+    <div class="LoginBorder">
+        @using (Html.BeginForm("editInfoUser", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.HiddenFor(x => x.userPassword)
+            @Html.HiddenFor(x => x.userId)
+            @Html.HiddenFor(x => x.dateOFBitrh)
+
+            <div>
+            <h2 id = "Welcome" > Edit Inforamtion </h2>
+            </div>
+            <br/>
+            <div>
+            <div id = "inputtext" > Edit Inforamtion User<span id="star">
+                *</span></div>
+                <table class="table">
+                <tr>
+                    <td>User Name:</td>
+                    <td>@Html.TextBoxFor(m => m.userName, null, new { @id = "input" })</td>
+                </tr>
+                <tr>
+                    <td>Email:</td>
+                    <td>@Html.TextBoxFor(m => m.userEmail, null, new { @id = "input" })</td>
+                </tr>
+                <tr>
+                    <td>Image ProFile:</td>
+                    <td><input type="file" name="userImage" /></td>
+                </tr>
+                </table>
+                @*<input id="input" type="text" />*@
+                <br />
+        </div>
+        <br />
+        <div>
+            <br />
+            <input id="forgotbtn" type="submit"  value="editInofUser" /><br /><br />
+        </div>
+
+    }
+        </div>
+
+
+    </body>
+</html>

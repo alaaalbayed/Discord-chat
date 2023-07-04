@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="discordDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="messages">
+          <Key>
+            <PropertyRef Name="messageId" />
+          </Key>
+          <Property Name="messageId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="messFromUser" Type="int" Nullable="false" />
+          <Property Name="messToUser" Type="int" Nullable="false" />
+          <Property Name="messageBody" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="messTime" Type="datetime" Nullable="false" />
+          <Property Name="imagePath" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="userId" />
+          </Key>
+          <Property Name="userId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userEmail" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="userPassword" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="userName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="dateOFBitrh" Type="date" Nullable="false" />
+          <Property Name="userImage" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_messages_RegisterToFromUser">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="messages" Type="Self.messages" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="userId" />
+            </Principal>
+            <Dependent Role="messages">
+              <PropertyRef Name="messFromUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_messages_RegisterToUser">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="messages" Type="Self.messages" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="userId" />
+            </Principal>
+            <Dependent Role="messages">
+              <PropertyRef Name="messToUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="discordDBModelStoreContainer">
+          <EntitySet Name="messages" EntityType="Self.messages" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_messages_RegisterToFromUser" Association="Self.FK_messages_RegisterToFromUser">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="messages" EntitySet="messages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_messages_RegisterToUser" Association="Self.FK_messages_RegisterToUser">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="messages" EntitySet="messages" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="discordDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="message">
+          <Key>
+            <PropertyRef Name="messageId" />
+          </Key>
+          <Property Name="messageId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="messFromUser" Type="Int32" Nullable="false" />
+          <Property Name="messToUser" Type="Int32" Nullable="false" />
+          <Property Name="messageBody" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="messTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="imagePath" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="User" Relationship="Self.FK_messages_RegisterToFromUser" FromRole="messages" ToRole="Users" />
+          <NavigationProperty Name="User1" Relationship="Self.FK_messages_RegisterToUser" FromRole="messages" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="userId" />
+          </Key>
+          <Property Name="userId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="userPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="userName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="dateOFBitrh" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="messages" Relationship="Self.FK_messages_RegisterToFromUser" FromRole="Users" ToRole="messages" />
+          <NavigationProperty Name="messages1" Relationship="Self.FK_messages_RegisterToUser" FromRole="Users" ToRole="messages" />
+          <Property Name="userImage" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_messages_RegisterToFromUser">
+          <End Role="Users" Type="Self.User" Multiplicity="1" />
+          <End Role="messages" Type="Self.message" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="userId" />
+            </Principal>
+            <Dependent Role="messages">
+              <PropertyRef Name="messFromUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_messages_RegisterToUser">
+          <End Role="Users" Type="Self.User" Multiplicity="1" />
+          <End Role="messages" Type="Self.message" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="userId" />
+            </Principal>
+            <Dependent Role="messages">
+              <PropertyRef Name="messToUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="discordDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="messages" EntityType="Self.message" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <AssociationSet Name="FK_messages_RegisterToFromUser" Association="Self.FK_messages_RegisterToFromUser">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="messages" EntitySet="messages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_messages_RegisterToUser" Association="Self.FK_messages_RegisterToUser">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="messages" EntitySet="messages" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="discordDBModelStoreContainer" CdmEntityContainer="discordDBEntities">
+          <EntitySetMapping Name="messages">
+            <EntityTypeMapping TypeName="discordDBModel.message">
+              <MappingFragment StoreEntitySet="messages">
+                <ScalarProperty Name="messageId" ColumnName="messageId" />
+                <ScalarProperty Name="messFromUser" ColumnName="messFromUser" />
+                <ScalarProperty Name="messToUser" ColumnName="messToUser" />
+                <ScalarProperty Name="messageBody" ColumnName="messageBody" />
+                <ScalarProperty Name="messTime" ColumnName="messTime" />
+                <ScalarProperty Name="imagePath" ColumnName="imagePath" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="discordDBModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="userImage" ColumnName="userImage" />
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="userEmail" ColumnName="userEmail" />
+                <ScalarProperty Name="userPassword" ColumnName="userPassword" />
+                <ScalarProperty Name="userName" ColumnName="userName" />
+                <ScalarProperty Name="dateOFBitrh" ColumnName="dateOFBitrh" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

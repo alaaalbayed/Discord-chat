@@ -1,0 +1,561 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="~/Images/847541504914fd33810e70a0ea73177e.ico" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,400;1,900&family=PT+Sans:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discord</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Nunito Sans', sans-serif;
+        }
+
+        .header {
+            background-color: #404eed;
+        }
+
+        .logo {
+            padding: 18px;
+            margin-left: 50px;
+        }
+
+        nav {
+            position: relative;
+            display: flex;
+            z-index: 50;
+        }
+
+        ul {
+            margin: auto;
+            list-style-type: none;
+        }
+
+            ul a {
+                text-decoration: none;
+                color: #fff;
+                margin: 0px 20px;
+                font-weight: bold;
+                text-align: center;
+            }
+
+                ul a li {
+                    font-size: 16px;
+                    display: inline;
+                    justify-content: space-between;
+                }
+
+                    ul a li:hover {
+                        text-decoration: underline;
+                    }
+
+        #btn {
+            color: #000;
+            text-decoration: none;
+        }
+
+        .btn {
+            background: #fff;
+            border-radius: 40px;
+            font-size: 14px;
+            padding: 12px 16px;
+            height: 40px;
+            width: 67px;
+            margin-right: 120px;
+            margin-top: 25px;
+        }
+
+            .btn:hover {
+                color: #404eed;
+                transition: color 0.5s;
+                box-shadow: rgba(31, 31, 31, 0.472) 0px 7px 20px;
+                transition: box-shadow 0.5s;
+            }
+
+        #text {
+            position: relative;
+            font-size: 70px;
+            color: #fff;
+            font-weight: 900;
+            font-family: 'Ubuntu', sans-serif;
+            margin-left: 23%;
+            margin-top: 90px;
+            z-index: 40;
+        }
+
+        #p {
+            position: relative;
+            text-align: center;
+            color: #fff;
+            font-size: 20px;
+            margin-top: 20px;
+            line-height: 1.7;
+            z-index: 40;
+        }
+
+        a #ss {
+            color: #000;
+            position: relative;
+            font-size: 20px;
+            padding: 16px 32px;
+            border-radius: 40px;
+            background: #fff;
+            height: 57px;
+            width: 300px;
+            margin-left: 25%;
+            margin-top: 40px;
+            cursor: pointer;
+            z-index: 30;
+        }
+
+            a #ss:hover {
+                color: #404eed;
+                transition: color 0.5s;
+                box-shadow: rgba(31, 31, 31, 0.472) 0px 7px 20px;
+            }
+
+        .open {
+            position: relative;
+            background: rgb(47, 47, 47);
+            color: #fff;
+            border-radius: 30px;
+            width: 330px;
+            height: 57px;
+            font-size: 20px;
+            padding: 16px;
+            border: none;
+            cursor: pointer;
+            margin: 50px 20px;
+            z-index: 20;
+        }
+
+            .open:hover {
+                background: rgb(85, 85, 85);
+                box-shadow: rgba(31, 31, 31, 0.472) 0px 7px 20px;
+                transition: background 0.5s;
+            }
+
+        .pic {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        #main {
+            background-color: #404eed;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            display: block;
+            height: auto;
+            width: auto;
+            max-width: none;
+            margin-left: -1130px;
+            z-index: 1;
+        }
+
+        #main1 {
+            position: absolute;
+            bottom: 0;
+            height: 350px;
+            width: 650px;
+            margin-left: -330px;
+            z-index: 2;
+        }
+
+        #main2 {
+            position: relative;
+            left: 22%;
+            margin-top: 300px;
+            margin-left: 734px;
+            z-index: 3;
+        }
+
+        .row2 {
+            padding: 10px;
+            background-color: #fff;
+            display: flex;
+            margin: 100px auto;
+        }
+
+        #pic2 {
+            overflow: scroll;
+            margin-top: 260px;
+            margin-left: 70px;
+        }
+
+        #create {
+            font-family: 'Ubuntu', sans-serif;
+            font-size: 50px;
+            margin-top: 285px;
+            margin-left: 100px;
+        }
+
+        #pp {
+            font-size: 20px;
+            margin-left: 100px;
+            line-height: 1.7;
+        }
+
+        .row3 {
+            background-color: #f6f6f6;
+            display: flex;
+            height: 660px;
+            justify-content: space-between;
+        }
+
+        #pic3 {
+            width: 650px;
+            height: 450px;
+            margin-top: 100px;
+            margin-right: 40px;
+        }
+
+        #create3 {
+            font-family: 'Ubuntu', sans-serif;
+            font-size: 50px;
+            margin-top: 200px;
+            margin-left: 100px;
+        }
+
+        #pp3 {
+            font-size: 20px;
+            margin-left: 100px;
+            line-height: 1.7;
+        }
+
+        .row4 {
+            display: flex;
+            height: 660px;
+            padding: 40px;
+            background-color: #fff;
+        }
+
+        #pic4 {
+            width: 650px;
+            height: 450px;
+            margin-top: 100px;
+            margin-left: 50px;
+        }
+
+        #create4 {
+            font-family: 'Ubuntu', sans-serif;
+            font-size: 50px;
+            margin-top: 200px;
+            margin-left: 100px;
+        }
+
+        #pp4 {
+            font-size: 20px;
+            margin-left: 100px;
+            line-height: 1.7;
+        }
+
+        .row5 {
+            background-color: #f6f6f6;
+            display: block;
+            height: 660px;
+            text-align: center;
+            padding: 100px;
+        }
+
+        #pic5 {
+            height: 650px;
+            width: auto;
+        }
+
+        #create5 {
+            font-size: 50px;
+            color: #000;
+            font-weight: 1000;
+            font-family: 'Ubuntu', sans-serif;
+            z-index: 40;
+        }
+
+        #pp5 {
+            font-size: 20px;
+            line-height: 1.7;
+        }
+
+        #d-btn {
+            background: #4c5af5;
+            color: #fff;
+            border-radius: 30px;
+            width: 300px;
+            height: 57px;
+            font-size: 20px;
+            padding: 16px;
+            border: none;
+            cursor: pointer;
+            margin: 50px 100px;
+        }
+
+            #d-btn:hover {
+                background: #717dfd;
+                box-shadow: rgba(31, 31, 31, 0.472) 0px 7px 20px;
+                transition: background 0.5s;
+            }
+
+        #ready {
+            font-family: 'Ubuntu', sans-serif;
+            font-size: 30px;
+            font-weight: 900;
+        }
+
+        .end {
+            background-color: #23272a;
+            height: 562px;
+            margin-top: 600px;
+            padding: 75px;
+        }
+
+        #create6 {
+            color: #5865f2;
+            font-family: 'Ubuntu', sans-serif;
+            font-size: 40px;
+            font-weight: 900;
+            line-height: 0.9;
+        }
+
+        .select {
+            margin-bottom: 20px;
+            background: #23272a;
+            border: none;
+        }
+
+        .socal {
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            margin-right: 1000px;
+        }
+
+            .socal a {
+                color: #fff;
+            }
+
+        .eproduct {
+            color: #404eed;
+            display: flex;
+            line-height: 2;
+            float: right;
+            margin-right: 300px;
+        }
+
+        .eproduct2 {
+            color: #404eed;
+            display: flex;
+            line-height: 2;
+            float: right;
+            margin-right: 300px;
+        }
+
+        .eproduct3 {
+            color: #404eed;
+            display: flex;
+            line-height: 2;
+            float: right;
+            margin-right: 300px;
+        }
+
+        .eproduct4 {
+            color: #404eed;
+            display:;
+            line-height: 2;
+            float: right;
+            margin-right: 300px;
+        }
+
+        .edit {
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .edit:hover {
+            text-decoration: underline;
+         }
+
+        .row {
+            position: relative;
+            display:flex;
+            z-index: 50;
+
+        }
+
+        hr.line {
+            border: 1px solid #5865f2;
+            margin-top: 19px;
+        }
+        #btnsingup {
+            color: #000;
+            text-decoration: none;
+        }
+        .btnsingup {
+            background: #404eed;
+            border-radius: 40px;
+            font-size: 14px;
+            height: 38px;
+            width: 80px;
+            padding: 9px 16px;
+            margin-left: 1000px;
+            color: #fff;
+        }
+            .btnsingup:hover {
+                background: #fff;
+                transition: background 0.5s;
+                color: #404eed;
+            }
+
+        .last{
+            display:flex;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="rwo">
+            <nav>
+                <a href="~/Home/Index" class="logo"><img src="~/Images/logo.PNG" /></a>
+                <ul>
+                    <a href="#">
+                    <li>Download</li></a>
+                    <a href="#">
+                    <li>Nitro</li></a>
+                    <a href="#">
+                    <li>Safety</li></a>
+                    <a href="#">
+                    <li>Support</li></a>
+                    <a href="#">
+                    <li>Blog</li></a>
+                    <a href="#">
+                    <li>Careers</li></a>
+                </ul>
+                <a href="~/Home/Login" id="btn"><div class="btn">Login</div></a>
+            </nav>
+        </div>
+    </div>
+    <h1 id="text">IMAGINE A PLACE...</h1>
+    <P id="p">...where you can belong to a school club, a gaming group, or a worldwide art community.<br>Where just you and a handful of friends can spend time together. A place that makes it easy<br>to talk every day and hang out more often.</P>
+    <div class="Download">
+        <a href="https://discord.com/api/downloads/distributions/app/installers/latest?channel=stable&platform=win&arch=x86"><i id="ss" class="fa fa-download">&nbsp; Download for Window</i></a>
+        <button class="open">Open Discord in your browser</button>
+    </div>
+    <div class="pic">
+        <img id="main" src="~/Images/e6d57714479874c665b36c7adee76b1d.png" alt="np">
+        <img id="main1" src="~/Images/8a8375ab7908384e1fd6efe408284203.png" alt="np">
+        <img id="main2" src="~/Images/c40c84ca18d84633a9d86b4046a91437.png" alt="np">
+    </div>
+    <div class="row2" data-aos="fade-up" data-aos-duration="1500">
+        <img id="pic2" src="~/Images/46b2132c01604c9493d558de444929f4.png" alt="np">
+        <div>
+            <h2 id="create">Create an<br>invite-only<br>place where you<br>belong</h2><br>
+            <p id="pp">Discord servers are organized into topic-<br>based channels where you can collaborate,<br> share, and just talk about your day without<br> clogging up a group chat.</p>
+        </div>
+    </div>
+    <div class="row3" data-aos="fade-up" data-aos-duration="1500">
+        <div>
+            <h2 id="create3">Where hanging<br>out is easy</h2><br>
+            <p id="pp3">Grab a seat in a voice channel when you’re<br>free. Friends in your server can see you’re<br>around and instantly pop in to talk without<br>having to call.</p>
+        </div>
+        <img id="pic3" src="~/Images/575a0322f3b36ca2fecb23ad2c6dd5ad.png" alt="np">
+    </div>
+    <div class="row4" data-aos="fade-up" data-aos-duration="1500">
+        <img id="pic4" src="~/Images/921b1ae33edca174b6ebe787bb8b6c3b.png" alt="np">
+        <div>
+            <h2 id="create4">From few to a<br>fandom</h2><br>
+            <p id="pp4">Get any community running with moderation<br>tools and custom member access. Give<br>members special powers, set up private<br>channels, and more.</p>
+        </div>
+    </div>
+    <div class="row5" data-aos="fade-up" data-aos-duration="1500">
+        <div>
+            <h2 id="create5">RELIABLE TECH FOR STAYING CLOSE</h2><br>
+            <p id="pp5">Low-latency voice and video feels like you’re in the same room. Wave hello over video, watch friends stream their<br>games, or gather up and have a drawing session with screen share.</p>
+        </div>
+        <img id="pic5" src="~/Images/98ea5b9e92e304c7d352ac462996adc5.png" alt="np">
+        <img src="~/Images/a188414ce83f2454b9d71a47c3d95909.png" alt="np"><h2 id="ready">Ready to start your journey?</h2>
+        <a href="https://discord.com/api/downloads/distributions/app/installers/latest?channel=stable&platform=win&arch=x86"><i id="d-btn" class="fa fa-download">&nbsp; Download for Windows</i></a>
+    </div>
+    <div class="end">
+        <div class="kk">
+            <h2 id="create6">IMAGINE A<br>PLACE</h2><br>
+            <div class="select">
+                <select name="" id="">
+                    <option id="option" value="">English, USA</option>
+                </select>
+            </div>
+            <div class="socal">
+                <a href="https://twitter.com/discord" target="_blank"><i class="fa fa-twitter fa-2x"></i></a>
+                <a href="https://www.instagram.com/discord/" target="_blank"><i class="fa fa-instagram fa-2x"></i></a>
+                <a href="https://www.facebook.com/discord/" target="_blank"><i class="fa fa-facebook-square fa-2x"></i></a>
+                <a href="https://www.youtube.com/discord" target="_blank"><i class="fa fa-youtube-play fa-2x"></i></a>
+            </div>
+            <div>
+                <div class="row">
+                    <div class="eproduct">
+                        <ul>
+                            <li>Product</li>
+                            <li class="edit">Download</li>
+                            <li class="edit">Nitro</li>
+                            <li class="edit">Status</li>
+                        </ul>
+                    </div>
+                    <div class="eproduct2">
+                        <ul>
+                            <li>Company</li>
+                            <li class="edit">About</li>
+                            <li class="edit">Jobs</li>
+                            <li class="edit">Branding</li>
+                            <li class="edit">Newsroom</li>
+                        </ul>
+                    </div>
+                    <div class="eproduct3">
+                        <ul>
+                            <li>Company</li>
+                            <li class="edit">College</li>
+                            <li class="edit">Support</li>
+                            <li class="edit">Safety</li>
+                            <li class="edit">Blog</li>
+                        </ul>
+                    </div>
+                    <div class="eproduct4">
+                        <ul>
+                            <li>Terms</li>
+                            <li class="edit">Privacy</li>
+                            <li class="edit">Support</li>
+                            <li class="edit">Cookie Settings</li>
+                            <li class="edit">Guidelines</li>
+                        </ul>
+                    </div>
+                </div>
+                <hr class="line"><br />
+                 <div class="last">
+                     <img src="~/Images/banner.JPG" height="32px" width="130px" />
+                     <a href="~/Home/Register" id="btnsingup"><div class="btnsingup">Sing up</div></a>
+                </div>
+            </div>
+        </div>
+</body>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init();
+</script>
+</html>

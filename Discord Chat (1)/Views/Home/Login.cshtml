@@ -1,0 +1,53 @@
+﻿@model Discord_Chat__1_.Models.userMessage
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link rel="icon" href="~/Images/847541504914fd33810e70a0ea73177e.ico" />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,400;1,900&family=PT+Sans:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/Style/LoginPage.css" type="text/css">
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+</head>
+<body>
+    
+    <div class="LoginBorder">
+        @using (Html.BeginForm("Login", "Home", FormMethod.Post))
+        {
+                <div>
+                    <h2 id="Welcome">Welcome back!</h2>
+                    <h4 id="excited">We're so excited to see you again!</h4>
+                </div>
+                <div>
+                    <div>
+                        <div id="inputtext">EMAIL OR PHONE NUMBER <span id="star">*</span></div><br />
+                        @*<input id="input" type="text" />*@
+                        @Html.TextBoxFor(x => x.currnetUser.userEmail, null, new { @id = "input", @type = "text" })
+                    </div>
+                    <div>
+                        <br />
+                        <div id="inputtext">PASSWORD <span id="star">*</span> </div><br />
+                        @*<input id=input type="password" />*@
+                        @Html.TextBoxFor(x => x.currnetUser.userPassword, null, new { @id = "input", @type = "password" })
+                        <br />
+                        @ViewBag.userEmail
+                    </div>
+                    <div>
+                        <br />
+                        <a id="forgot" href="~/Home/Forget">Forgot your password?</a><br /><br />
+                        <input id="loginbtn" type="submit" value="Login" /><br /><br />
+                    </div>
+                    <div>
+                        <div id="Need">Need an accounts? <a id="Register" href="~/Home/Register">Register</a></div>
+                    </div>
+                </div>
+                }
+            </div>
+
+    
+</body>
+</html>

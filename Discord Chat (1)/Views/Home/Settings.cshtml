@@ -1,0 +1,67 @@
+﻿@model Discord_Chat__1_.Models.userMessage
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="~/Images/847541504914fd33810e70a0ea73177e.ico" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Discord</title>
+    <link rel="stylesheet" href="~/Style/Settings.css" type="text/css" />
+    <script src="https://kit.fontawesome.com/222cea3eed.js"></script>
+</head>
+<body>
+
+    <div class="sidebar">
+        <div>
+            <h5 id="usersttingstop">
+                USER SETTINGS
+            </h5><br /><br />
+            <div class="sidebar__icon">
+                <h4><a style="text-decoration:none; color:white;" href="@Url.Action("Settings","Home")">My Account</a></h4>
+            </div>
+            <br />
+            <div class="sidebar__icon">
+                <h4>Log Out<a href="@Url.Action("LogOut","Home")"><i style="margin-left:60px; color:white;" class="fa fa-sign-out fa-lg1"></i></a></h4>
+            </div>
+
+        </div>
+    </div>
+    <div class="Setting">
+        <div id="textmyaccount">
+            My Account
+            <a href="@Url.Action("PageUser","Home")"><i id="circleEsc" class="fa fa-times-circle fa-2x"></i></a>
+        </div>
+        <div class="SttingsBorder">
+            <div>
+                <table class="table">
+                    <tr id="tablesettile">
+                        <th><img src="~/Images/@Model.currnetUser.userImage" width="80" height="80" /></th>
+                        <th><h4>@Model.currnetUser.userName</h4></th>
+                        <th>
+                            <a style="text-decoration: none" ; href="@Url.Action("editInfoUser", "Home", new {id=Model.currnetUser.userId})">
+                                <input type="submit" value="Edit User Profile" />
+                            </a>
+                        </th>
+                    </tr>
+                </table>
+            </div>
+            <div class="SttingsBorder2">
+                <h4 id="allon">USERNAME</h4>
+                <h5 id="allon">@Model.currnetUser.userName</h5>
+                <h4 id="allon">EMAIL</h4>
+                <h5 id="allon">@Model.currnetUser.userEmail</h5>
+                <h4 id="allon">Password</h4>
+                <h5 id="allon">*********</h5>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

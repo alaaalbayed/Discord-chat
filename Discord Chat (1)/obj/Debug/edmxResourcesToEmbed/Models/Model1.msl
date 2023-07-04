@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="discordDBModelStoreContainer" CdmEntityContainer="discordDBEntities">
+    <EntitySetMapping Name="messages">
+      <EntityTypeMapping TypeName="discordDBModel.message">
+        <MappingFragment StoreEntitySet="messages">
+          <ScalarProperty Name="messageId" ColumnName="messageId" />
+          <ScalarProperty Name="messFromUser" ColumnName="messFromUser" />
+          <ScalarProperty Name="messToUser" ColumnName="messToUser" />
+          <ScalarProperty Name="messageBody" ColumnName="messageBody" />
+          <ScalarProperty Name="messTime" ColumnName="messTime" />
+          <ScalarProperty Name="imagePath" ColumnName="imagePath" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="discordDBModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="userImage" ColumnName="userImage" />
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="userEmail" ColumnName="userEmail" />
+          <ScalarProperty Name="userPassword" ColumnName="userPassword" />
+          <ScalarProperty Name="userName" ColumnName="userName" />
+          <ScalarProperty Name="dateOFBitrh" ColumnName="dateOFBitrh" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

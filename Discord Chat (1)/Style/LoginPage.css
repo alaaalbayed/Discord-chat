@@ -1,0 +1,85 @@
+﻿body {
+    background-image: url('../images/discord.jpg');
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.LoginBorder {
+    border: 1px solid #302d2d;
+    background: #36393f;
+    border-radius: 5px;
+    width: 784px;
+    height: 425px;
+    margin: 100px 265px;
+}
+
+#Welcome {
+    margin-left:40px;
+    margin-top:30px;
+    color: white;
+}
+
+#excited {
+    font-weight: 100;
+    margin-left: 40px;
+    color: #b9bbbe;
+}
+
+#star {
+    color: red;
+    font-size: 12px;
+}
+
+#input {
+    margin-left: 40px;
+    height: 35px;
+    width: 400px;
+    border: 1px solid black;
+    background-color: #303339;
+    border-radius: 3px;
+    color: white;
+}
+
+    #input:focus {
+        outline: none;
+        border: 1px solid;
+        border-color: #1caff4;
+    }
+
+#inputtext {
+    font-size:12px;
+    margin-left: 40px;
+    color: #b9bbbe;
+}
+
+#forgot {
+    margin-left: 40px;
+    text-decoration: none;
+    color: #1caff4;
+    font-size: 14px;
+}
+
+#Register {
+    margin-left: 10px;
+    text-decoration: none;
+    color: #1caff4;
+    font-size: 14px;
+}
+
+#loginbtn {
+    margin-left: 40px;
+    background-color: #5865f2;
+    width: 408px;
+    height: 40px;
+    border: 1px solid #5865f2;
+    border-radius: 3px;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+#Need {
+    color: #a8a8a8;
+    margin-left: 40px;
+    font-size: 14px;
+}
+

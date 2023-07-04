@@ -1,0 +1,45 @@
+﻿
+@{
+    Layout = null;
+}
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link rel="icon" href="~/Images/847541504914fd33810e70a0ea73177e.ico" />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,400;1,900&family=PT+Sans:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/Style/ForgetPage.css" type="text/css">
+    <meta name="viewport" content="width=device-width" />
+    <title>Forget Password</title>
+</head>
+<body>
+
+    <div class="LoginBorder">
+        @using (Html.BeginForm("Login", "Home", FormMethod.Post))
+        {
+            <div>
+                <h2 id="Welcome">Forget Password</h2>
+                <h4 id="excited">Please Enter your email address</h4>
+            </div>
+            <br />
+            <div>
+                <div id="inputtext">EMAIL<span id="star">*</span></div>
+                @*<input id="input" type="text" />*@
+                @Html.TextBox("email", null, new { @id = "input", @type = "text" })
+                <br />
+            </div>
+            <br />
+            <div>
+                <br />
+                <input id="forgotbtn" type="submit" value="Forget" /><br /><br />
+            </div>
+        }
+    </div>
+
+</body>
+</html>

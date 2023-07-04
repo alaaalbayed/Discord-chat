@@ -1,0 +1,240 @@
+﻿@model Discord_Chat__1_.Models.userMessage
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="~/Images/847541504914fd33810e70a0ea73177e.ico" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Discord</title>
+    <link rel="stylesheet" href="~/Style/pageuser.css" type="text/css" />
+    <script src="https://kit.fontawesome.com/222cea3eed.js"></script>
+
+</head>
+<body>
+    <div class="servers">
+        <div class="logo">
+            <img src="~/Images/logo.jpg" alt="Discord" />
+        </div>
+        <div class="server-logo">
+            <span class="message__count">8</span>
+            <img src="~/Images/server1.jpg" alt="server" />
+        </div>
+        <div class="server-logo">
+            <span class="message__count">50</span>
+            <img src="~/Images/server2.jpg" alt="server" />
+
+        </div>
+        <div class="server-logo">
+            <span class="message__count">120</span>
+            <img src="~/Images/server3.jpg" alt="server" />
+
+        </div>
+        <div class="server-logo">
+            <span class="message__count">20</span>
+            <img src="~/Images/server4.jpg" alt="server" />
+
+        </div>
+        <div class="server-logo">
+            <span class="message__count">25</span>
+            <img src="~/Images/server5.jpg" alt="server" />
+        </div>
+    </div>
+
+    <div class="sidebar">
+
+        <div class="sidebar__top">
+            @using (Html.BeginForm("Search", "Home", FormMethod.Get))
+            {
+                <input type="text" name="userName" placeholder="Find or start a conversation" />
+                <button type="submit" class=" btn btn-primary"></button>
+           }
+        </div>
+            
+        <div class="sidebar__icon">
+            <i class="fas fa-user-friends fa-lg"></i>
+            <span>Friends</span>
+        </div>
+        <div class="sidebar__icon">
+            <i class="fas fa-compact-disc fa-lg"></i>
+            <span>Nitro</span>
+        </div>
+        <div class="sidebar__users">
+            <div class="sidebar__usersHeader">
+                <div class="sidebar__header">
+                    <h4>Direct messages</h4>
+                </div>
+                <i class="fas fa-plus sidebar__addUser"></i>
+            </div>
+            <div>
+                @if (Model.userDM.Count != 0)
+                {
+                    foreach (var item in Model.userDM)
+                    {
+                        <a style="text-decoration:none;" href="@Url.Action("PageUser", "Home", new { Id = item.userId })">
+                            <div class="sidebar__user">
+                                <div>
+                                    <span class="status"></span>
+                                    @*<img src="~/Images/user1.jpg"  />*@
+                                    @if (item.userImage != null)
+                                    {
+                                        <img src="~/Images/@item.userImage" alt="avatar" />
+                                    }
+                                    else
+                                    {
+                                        <img src="~/Images/LogoUser.png" alt="avatar" />
+                                    }
+                                </div>
+                                <h4>@item.userName</h4>
+                            </div>
+                        </a>
+                    }
+                }
+                else
+                {
+                    <div></div>
+                }
+
+            </div>
+        </div>
+
+
+        <div class="sidebar__profile">
+            <div>
+                <span class="status"></span>
+                @*<img src="~/Images/user4.jpg" alt="avatar" />*@
+                @if (Model.currnetUser.userImage != null)
+                {
+                    <img src="~/Images/@Model.currnetUser.userImage" alt="avatar" />
+                }
+                else
+                {
+                    <img src="~/Images/LogoUser.png" alt="avatar" />
+                }
+            </div>
+            <div class="sidebar__profileInfo">
+                <h3>@Model.currnetUser.userName</h3>
+                <p>#@Model.currnetUser.userId</p>
+            </div>
+            <div class="sidebar__profileIcons">
+                <i class="fas fa-microphone"></i>
+                <i style="margin-right:10px;" class="fas fa-headset"></i>
+                <a style="text-decoration: none; color: #808080; margin-right: 12px;" href="@Url.Action("Settings","Home")"><i class="fas fa-cog"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="chat">
+        <div>
+            <div class="chatHeader">
+                @{
+                    var selectedUser = "";
+                    foreach (var item in Model.listOfMessage)
+                    {
+                        if (item.messToUser != Model.currnetUser.userId)
+                        {
+                            selectedUser = null;
+                            selectedUser = item.User1.userName;
+                            break;
+                        }
+                    }
+                }
+                <div class="chatHeader__left">
+                    <span class="chatHeader__Dm">@@</span>
+                    <h3>@selectedUser</h3>
+                </div>
+
+                <div class="chatHeader__right">
+                    <i class="fas fa-phone-volume fa-lg"></i>
+                    <i class="fas fa-video fa-lg"></i>
+                    <i class="fas fa-thumbtack fa-lg"></i>
+                    <i class="fas fa-user-plus fa-lg"></i>
+                    @using (Html.BeginForm("PageUser", "Home", FormMethod.Get))
+                    {
+                        <div class="search">
+                            @Html.TextBox("messageBodyedit", null, new { @type = "text", @placeholder = "search", @autocomplete = "off" })
+                            <button type="submit">Search</button>
+                            @*<input type="text" placeholder="search" />*@
+                            <i class="fas fa-search fa-lg"></i>
+
+
+                        </div>
+                    }
+                    <i class="fas fa-inbox fa-lg"></i>
+                    <i class="fas fa-question-circle fa-lg"></i>
+                </div>
+            </div>
+        </div>
+        <div class="chat__messages">
+
+            <div class="chat__messages">
+
+                @if (Model.listOfMessage.Count != 0)
+                {
+                    foreach (var item in Model.listOfMessage)
+                    {
+
+
+
+                        <div class="message">
+                            @*<img src="~/Images/user3.jpg" alt="avatar">*@
+                            <img src="~/Images/LogoUser.png" alt="avatar"/>
+                            <div class="message__info">
+                                <h4>@item.User.userName <span class="message__timestamp">@item.messTime</span></h4>
+                                <p>@item.messageBody</p>
+                            </div>
+                            @if (item.messFromUser == Model.currnetUser.userId)
+                            {
+                                <div class="edit"><a href="@Url.Action("Edit","Home", new { id = item.messageId }) "><i id="iconmsg" class="fa fa-pencil fa-lg"></i></a></div>
+                                <div class="edit"><a href="@Url.Action("Delete","Home", new { id = item.messageId }) "><i id="iconmsg1" class="fa fa-trash-o fa-lg"></i></a></div>
+                                
+                            }
+                        </div>
+
+                    }
+                }
+                else
+                {
+                    <div class="chat__messages">
+                        <div class="message">
+                        </div>
+                    </div>
+
+                }
+            </div>
+        </div>
+
+        <div class="chat__input">
+            <i class="fas fa-plus-circle fa-lg"></i>
+            @using (Html.BeginForm("Message", "Home", FormMethod.Post))
+            {
+                <form>
+                    @*@for (int i = 0; i < Model.listOfMessage.Count; i++)
+                        {*@
+                    @*<input class="sendMessage" type="text" placeholder="send message">*@
+                    @Html.TextBox("messageBody", null, new { @class = "sendMessage", @type = "text", @placeholder = "send message", @autocomplete = "off" })
+                    @*@Html.Partial("_Message",Model.listOfMessage, new ViewDataDictionary())*@
+                    <button class="chat__inputButton" type="submit">Send</button>
+                    @*}*@
+
+                </form>
+
+
+            }
+            <div class="chat__inputIcons">
+                <i class="fas fa-gift fa-lg"></i>
+                <i class="fas fa-file-image fa-lg"></i>
+                <i class="fas fa-laugh fa-lg"></i>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

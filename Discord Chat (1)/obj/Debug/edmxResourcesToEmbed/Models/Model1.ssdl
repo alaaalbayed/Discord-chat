@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="discordDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="messages">
+    <Key>
+      <PropertyRef Name="messageId" />
+    </Key>
+    <Property Name="messageId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="messFromUser" Type="int" Nullable="false" />
+    <Property Name="messToUser" Type="int" Nullable="false" />
+    <Property Name="messageBody" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="messTime" Type="datetime" Nullable="false" />
+    <Property Name="imagePath" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="userId" />
+    </Key>
+    <Property Name="userId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="userEmail" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="userPassword" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="userName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="dateOFBitrh" Type="date" Nullable="false" />
+    <Property Name="userImage" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_messages_RegisterToFromUser">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="messages" Type="Self.messages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="messages">
+        <PropertyRef Name="messFromUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_messages_RegisterToUser">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="messages" Type="Self.messages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="messages">
+        <PropertyRef Name="messToUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="discordDBModelStoreContainer">
+    <EntitySet Name="messages" EntityType="Self.messages" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_messages_RegisterToFromUser" Association="Self.FK_messages_RegisterToFromUser">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="messages" EntitySet="messages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_messages_RegisterToUser" Association="Self.FK_messages_RegisterToUser">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="messages" EntitySet="messages" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
